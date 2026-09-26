@@ -24,6 +24,11 @@ sample_*.pdf
 # Local probe/debug scratch files
 _*.txt
 
+# GitHub Actions workflow kept locally: the current OAuth token lacks the
+# `workflow` scope, so it cannot be pushed. Re-add with:
+#   git add -f .github/workflows/build-release.yml
+.github/workflows/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
