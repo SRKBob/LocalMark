@@ -55,3 +55,14 @@ npm run build:portable
 
 ## 📄 License
 MIT License
+
+---
+
+## 🙏 致谢 (Acknowledgements)
+
+LocalMark 的实现离不开开源社区优秀项目的支持，特别致谢：
+
+- [firecrawl/pdf-inspector](https://github.com/firecrawl/pdf-inspector) — 优秀的纯 Rust 高性能 PDF 分类、文本提取与 Markdown 转换引擎。
+- [PDF.js](https://github.com/mozilla/pdf.js) — 强大的开源网页与客户端 PDF 渲染基础设施。
+- [Electron](https://github.com/electron/electron) 与 [Vue.js](https://github.com/vuejs/core) — 提供稳定出色的跨平台桌面交互体验。
+
