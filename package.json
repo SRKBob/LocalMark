@@ -8,9 +8,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build && electron-builder --dir",
-    "build:dir": "vue-tsc --noEmit && vite build && electron-builder --dir -c.win.signAndEditExecutable=false",
-    "build:portable": "vue-tsc --noEmit && vite build && electron-builder --win portable -c.win.signAndEditExecutable=false",
-    "build:win": "vue-tsc --noEmit && vite build && electron-builder --win -c.win.signAndEditExecutable=false",
+    "build:dir": "vue-tsc --noEmit && vite build && electron-builder --dir",
+    "build:portable": "vue-tsc --noEmit && vite build && electron-builder --win portable",
+    "build:setup": "vue-tsc --noEmit && vite build && electron-builder --win nsis",
+    "build:win": "vue-tsc --noEmit && vite build && electron-builder --win",
+    "icon": "python scripts/make_icon.py",
     "preview": "vite preview"
   },
   "build": {
@@ -18,17 +20,32 @@
     "productName": "LocalMark",
     "npmRebuild": false,
     "directories": {
-      "output": "release"
+      "output": "release",
+      "buildResources": "build"
     },
     "files": [
       "dist/**/*",
       "dist-electron/**/*"
     ],
     "win": {
+      "icon": "build/icon.ico",
       "signAndEditExecutable": false,
       "target": [
-        "portable"
+        "portable",
+        "nsis"
       ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "LocalMark",
+      "artifactName": "LocalMark-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "LocalMark-Portable-${version}.${ext}"
     }
   },
   "dependencies": {

@@ -12,6 +12,7 @@ dist
 dist-electron
 dist-ssr
 release/
+release-*/
 *.exe
 *.local
 .cache
@@ -19,6 +20,9 @@ release/
 
 # Test sample files
 sample_*.pdf
+
+# Local probe/debug scratch files
+_*.txt
 
 # Editor directories and files
 .vscode/*
